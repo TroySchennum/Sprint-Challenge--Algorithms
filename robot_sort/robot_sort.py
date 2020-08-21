@@ -96,8 +96,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        set_light_on(self)
+       
+    
+        if compare_item(self) == -1:
+            swap_item(self)
+            if can_move_right(self) == True:
+                move_right(self)
+                return sort(self._list[0:])
+
+        else:
+            if can_move_right(self) == True:
+                move_right(self)
+            else: 
+                return self._list
+
+
+        # set_light_on(self)
+        # if len(self._list) <= 1:
+        #     return arr
+        # else:
+        #     mid = len(self._list) // 2
+        #     # recurse on left half
+        #     left = sort(self._list[:mid])
+        #     # recurse on right half
+        #     right = sort(self._list[mid:])
+        #     # put things back together: merge
+        #     self._list = merge(left, right)
+        # return self._list
 
 
 if __name__ == "__main__":
