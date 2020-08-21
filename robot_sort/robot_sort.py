@@ -3,7 +3,7 @@ class SortingRobot:
         """
         SortingRobot takes a list and sorts it.
         """
-        self._list = l          # The list the robot is tasked with sorting
+        self._list = l         # The list the robot is tasked with sorting
         self._item = None       # The item the robot is holding
         self._position = 0      # The list position the robot is at
         self._light = "OFF"     # The state of the robot's light
@@ -96,8 +96,47 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        self.set_light_on()
+        if self._item == None:
+            self.swap_item()
+            self.move_right
+        if self.compare_item() == None:
+            
+            self.move_right
+        if self.compare_item() == -1:
+            self.swap_item()
+            if self.can_move_right() == True:
+                self.move_right()
+                return self.sort()
+
+        else:
+            if self.can_move_right() == True:
+                self.move_right()
+                return self.sort()
+            else: 
+                return self._list
+
+        
+        # set_light_on(self)
+        # if len(self._list) <= 1:
+        #     return arr
+        # else:
+        #     mid = len(self._list) // 2
+        #     # recurse on left half
+        #     left = sort(self._list[:mid])
+        #     # recurse on right half
+        #     right = sort(self._list[mid:])
+        #     # put things back together: merge
+        #     self._list = merge(left, right)
+        # return self._list
+    #     n = len(arr) - 1
+    # for i in range(n):
+    #     for x in range(n - i):
+    #         if arr[x] > arr[x+1] : 
+    #             arr[x], arr[x+1] = arr[x+1], arr[x]
+
+    
+    # return arr
 
 
 if __name__ == "__main__":
